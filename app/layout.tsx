@@ -9,9 +9,9 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "InnoVibe - India's Leading EV Charging Network",
+  title: "InnoVibe Mobility - India's Leading EV Services Network",
   description:
-    "Find, reserve, and pay for EV charging stations across India. Fast, reliable, and convenient charging solutions for your electric vehicle.",
+    "Find, reserve, and pay for EV services across India. Fast, reliable, and convenient solutions for your electric vehicle.",
   generator: "v0.app",
 };
 

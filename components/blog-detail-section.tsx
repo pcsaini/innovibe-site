@@ -63,58 +63,6 @@ The transition to electric mobility is not just a trend but a necessity for sust
     tags: ["Electric Vehicles", "India", "Future", "Government Policy"],
     featured: true,
   },
-  {
-    id: 2,
-    slug: "ev-charging-infrastructure-guide",
-    title: "Complete Guide to EV Charging Infrastructure in India",
-    excerpt:
-      "Everything you need to know about EV charging stations, types of chargers, and the growing charging network across India.",
-    content: `Understanding EV charging infrastructure is crucial for both current and prospective EV owners. This comprehensive guide covers everything you need to know about charging your electric vehicle in India.
-
-## Types of EV Chargers
-
-### Level 1 Charging (AC Slow)
-- **Power**: 3.3 kW
-- **Charging Time**: 6-8 hours for full charge
-- **Best For**: Home charging, overnight charging
-
-### Level 2 Charging (AC Fast)
-- **Power**: 7.4 kW - 22 kW
-- **Charging Time**: 2-4 hours for full charge
-- **Best For**: Public charging, workplace charging
-
-### Level 3 Charging (DC Fast)
-- **Power**: 50 kW - 150 kW
-- **Charging Time**: 30-60 minutes for 80% charge
-- **Best For**: Highway charging, quick top-ups
-
-## Charging Network in India
-
-The charging infrastructure in India is expanding rapidly:
-
-- **Public Charging Stations**: Over 5,000 stations across major cities
-- **Highway Corridors**: Charging stations every 25-30 km on major highways
-- **Home Charging**: Growing adoption of residential charging solutions
-
-## Charging Costs
-
-Understanding the economics of EV charging:
-
-- **Home Charging**: ₹3-6 per kWh
-- **Public AC Charging**: ₹8-12 per kWh
-- **Public DC Fast Charging**: ₹12-18 per kWh
-
-## Future Developments
-
-The charging infrastructure is set to grow exponentially with government support and private investments.`,
-    image: "placeholder.svg",
-    author: "Technical Team",
-    publishedAt: "2024-01-10",
-    readTime: "6 min read",
-    category: "Technical Guide",
-    tags: ["Charging", "Infrastructure", "Guide", "Technology"],
-    featured: false,
-  },
   // Add other blog posts here...
 ];
 
@@ -129,7 +77,7 @@ export default function BlogDetailSection({ slug }: BlogDetailSectionProps) {
 
   useEffect(() => {
     // Find the blog post by slug
-    const foundBlog = blogPosts.find((post) => post.slug === slug);
+    const foundBlog = blogPosts[0];
     setBlog(foundBlog || null);
 
     // Get related blogs (same category, excluding current blog)
@@ -343,11 +291,12 @@ export default function BlogDetailSection({ slug }: BlogDetailSectionProps) {
                       <li
                         key={itemIndex}
                         className="text-gray-700 leading-relaxed"
-                      >
-                        {item
-                          .replace("- ", "")
-                          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")}
-                      </li>
+                        dangerouslySetInnerHTML={{
+                          __html: item
+                            .replace("- ", "")
+                            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
+                        }}
+                      />
                     ))}
                   </ul>
                 );
@@ -364,11 +313,12 @@ export default function BlogDetailSection({ slug }: BlogDetailSectionProps) {
                       <li
                         key={itemIndex}
                         className="text-gray-700 leading-relaxed"
-                      >
-                        {item
-                          .replace(/^\d+\.\s/, "")
-                          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")}
-                      </li>
+                        dangerouslySetInnerHTML={{
+                          __html: item
+                            .replace(/^\d+\.\s/, "")
+                            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
+                        }}
+                      />
                     ))}
                   </ol>
                 );
@@ -377,9 +327,13 @@ export default function BlogDetailSection({ slug }: BlogDetailSectionProps) {
                   <p
                     key={index}
                     className="text-gray-700 leading-relaxed mb-6 text-lg"
-                  >
-                    {paragraph.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")}
-                  </p>
+                    dangerouslySetInnerHTML={{
+                      __html: paragraph.replace(
+                        /\*\*(.*?)\*\*/g,
+                        "<strong>$1</strong>"
+                      ),
+                    }}
+                  />
                 );
               }
             })}

@@ -555,62 +555,66 @@ export default function BlogsSection() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuredBlogs.map((blog, index) => (
-              <Card
-                key={blog.id}
-                className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={blog.image || "/placeholder.svg?height=200&width=400"}
-                    alt={blog.title}
-                    width={400}
-                    height={200}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
-                    Featured
-                  </Badge>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>
-                        {new Date(blog.publishedAt).toLocaleDateString()}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{blog.readTime}</span>
-                    </div>
+              <Link href={`/blogs/${blog.slug}`}>
+                <Card
+                  key={blog.id}
+                  className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={
+                        blog.image || "/placeholder.svg?height=200&width=400"
+                      }
+                      alt={blog.title}
+                      width={400}
+                      height={200}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
+                      Featured
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="mb-3">
-                    {blog.category}
-                  </Badge>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    {blog.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {blog.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <User className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-500">
-                        {blog.author}
-                      </span>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>
+                          {new Date(blog.publishedAt).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{blog.readTime}</span>
+                      </div>
                     </div>
-                    <Link
-                      href={`/blogs/${blog.slug}`}
-                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
-                    >
-                      Read More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
+                    <Badge variant="outline" className="mb-3">
+                      {blog.category}
+                    </Badge>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {blog.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {blog.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <User className="w-4 h-4 text-gray-400" />
+                        <span className="text-sm text-gray-500">
+                          {blog.author}
+                        </span>
+                      </div>
+                      <Link
+                        href={`/blogs/${blog.slug}`}
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -676,66 +680,68 @@ export default function BlogsSection() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredBlogs.map((blog, index) => (
-                <Card
-                  key={blog.id}
-                  className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden animate-fade-in-up"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={
-                        blog.image || "/placeholder.svg?height=200&width=400"
-                      }
-                      alt={blog.title}
-                      width={400}
-                      height={200}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    {blog.featured && (
-                      <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
-                        Featured
+                <Link href={`/blogs/${blog.slug}`}>
+                  <Card
+                    key={blog.id}
+                    className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden animate-fade-in-up"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src={
+                          blog.image || "/placeholder.svg?height=200&width=400"
+                        }
+                        alt={blog.title}
+                        width={400}
+                        height={200}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {blog.featured && (
+                        <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
+                          Featured
+                        </Badge>
+                      )}
+                    </div>
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            {new Date(blog.publishedAt).toLocaleDateString()}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{blog.readTime}</span>
+                        </div>
+                      </div>
+                      <Badge variant="outline" className="mb-3">
+                        {blog.category}
                       </Badge>
-                    )}
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>
-                          {new Date(blog.publishedAt).toLocaleDateString()}
-                        </span>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 line-clamp-2">
+                        {blog.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <User className="w-4 h-4 text-gray-400" />
+                          <span className="text-sm text-gray-500">
+                            {blog.author}
+                          </span>
+                        </div>
+                        <Link
+                          href={`/blogs/${blog.slug}`}
+                          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                        >
+                          Read More
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{blog.readTime}</span>
-                      </div>
-                    </div>
-                    <Badge variant="outline" className="mb-3">
-                      {blog.category}
-                    </Badge>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                      {blog.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
-                      {blog.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-500">
-                          {blog.author}
-                        </span>
-                      </div>
-                      <Link
-                        href={`/blogs/${blog.slug}`}
-                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           )}

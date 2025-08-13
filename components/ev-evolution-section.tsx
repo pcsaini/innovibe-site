@@ -12,11 +12,13 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function EvEvolutionSection() {
   type ServiceMeta = {
     icon: React.ElementType;
     description: string;
+    link?: string;
   };
 
   const serviceTitles: string[] = [
@@ -37,6 +39,7 @@ export default function EvEvolutionSection() {
       icon: Wrench,
       description:
         "All-around EV maintenance, repair, and home service for two-wheelers and bikes.",
+      link: "/ev-services",
     },
     "EV Conversion": {
       icon: RefreshCw,
@@ -104,27 +107,29 @@ export default function EvEvolutionSection() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
             {serviceTitles.map((title, index) => {
-              const { icon: Icon, description } = serviceMeta[title];
+              const { icon: Icon, description, link } = serviceMeta[title];
               return (
-                <Card
-                  key={index}
-                  className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 bg-white animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardContent className="p-6 h-full flex flex-col">
-                    <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4 transition-all duration-300">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="flex-grow">
-                      <h4 className="text-xl font-bold text-gray-800 mb-3">
-                        {title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        {description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Link href={link || "#"}>
+                  <Card
+                    key={index}
+                    className="group cursor-pointer border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 bg-white animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4 transition-all duration-300">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="text-xl font-bold text-gray-800 mb-3">
+                          {title}
+                        </h4>
+                        <p className="text-gray-600 leading-relaxed">
+                          {description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
