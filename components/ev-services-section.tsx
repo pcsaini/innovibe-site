@@ -2,6 +2,8 @@ import { Check, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function EvServicesSection() {
   const services = [
@@ -102,6 +104,12 @@ export default function EvServicesSection() {
                       </div>
                     ))}
                   </div>
+
+                  <Link href="/booking">
+                    <Button className="w-full mt-6" size="lg">
+                      Book Now
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

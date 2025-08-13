@@ -25,6 +25,7 @@ export default function HeaderWithSlider() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "EV Services", href: "/ev-services" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "/contact" },
   ];
 

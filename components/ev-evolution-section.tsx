@@ -92,8 +92,9 @@ export default function EvEvolutionSection() {
             InnoVibe: Powering India's Electric Future
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Headquartered in Visakhapatnam, Andhra Pradesh, Innovibe Mobility Everywhere is India's
-            fastest-growing electric vehicle service network.
+            Headquartered in Visakhapatnam, Andhra Pradesh, Innovibe Mobility
+            Everywhere is India's fastest-growing electric vehicle service
+            network.
           </p>
         </div>
 
@@ -126,6 +127,31 @@ export default function EvEvolutionSection() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+
+        <div className="text-center bg-blue-600 rounded-2xl p-8 lg:p-12 text-white animate-fade-in-up">
+          <h3 className="text-3xl lg:text-4xl font-bold mb-6">
+            Partner with India's EV Revolution
+          </h3>
+          <p className="text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+            Join EV GO as a franchise partner or investor. Be part of India's
+            largest electric vehicle service ecosystem with proven business
+            models and comprehensive support.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+              <div className="w-3 h-3 bg-blue-300 rounded-full animate-pulse"></div>
+              <span className="text-xl font-medium">
+                contact@innovibemobility.com
+              </span>
+            </div>
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+              <div className="w-3 h-3 bg-blue-300 rounded-full animate-pulse"></div>
+              <span className="text-xl font-medium">
+                ceo@innovibemobility.com
+              </span>
+            </div>
           </div>
         </div>
       </div>
