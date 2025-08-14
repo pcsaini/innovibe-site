@@ -59,7 +59,8 @@ export default function EvConversionPage() {
             EV Conversion
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Convert your existing vehicle to electric and enjoy the benefits.
+            Transform your petrol vehicle to electric with expert conversion
+            services.
           </p>
         </div>
 

@@ -53,7 +53,8 @@ export default function EvServicesSection() {
             EV Services
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover reliable and eco-friendly EV solutions.
+            All-around EV maintenance, repair, and home service for two-wheelers
+            and bikes.
           </p>
         </div>
 

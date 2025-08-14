@@ -48,10 +48,10 @@ export default function EvServicesPage() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            EV Services
+            EV Sales
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover reliable and eco-friendly EV solutions.
+            Buy two-, three-, and four-wheel electric vehicles for all needs.
           </p>
         </div>
 
